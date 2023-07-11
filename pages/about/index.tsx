@@ -1,12 +1,23 @@
-import AboutLayout from './layout'
+import Head from "next/head";
+import type { ReactElement } from "react";
+import Layout from "../components/layout";
+import NestedLayout from "../components/nestedLayout";
 
-
-const About = () => {
+export default function About() {
   return (
-    <AboutLayout>
-      <main>about</main>
-    </AboutLayout>
-  )
+    <>
+      <Head>
+        <title>about</title>
+      </Head>
+      <main>about dnhyxc</main>
+    </>
+  );
 }
 
-export default About
+About.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <Layout>
+      <NestedLayout>{page}</NestedLayout>
+    </Layout>
+  );
+};

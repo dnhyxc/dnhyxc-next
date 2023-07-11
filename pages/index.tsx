@@ -1,12 +1,23 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import Head from "next/head";
+import type { ReactElement } from "react";
+import Layout from "./components/layout";
+import NestedLayout from "./components/nestedLayout";
 
-const inter = Inter({ subsets: ['latin'] })
-
-export default function Home() {
+export default function Page() {
   return (
-    <main>hello dn</main>
-  )
+    <>
+      <Head>
+        <title>dnhyxc</title>
+      </Head>
+      <main>hello dnhyxc</main>
+    </>
+  );
 }
+
+Page.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <Layout>
+      <NestedLayout>{page}</NestedLayout>
+    </Layout>
+  );
+};
